@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Personal</title>
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
+    <!-- for-mobile-apps -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <!-- //for-mobile-apps -->
+    <!--fonts-->
+    <link href='http://fonts.useso.com/css?family=Raleway:500,600,700,100,800,900,400,300' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.useso.com/css?family=Ubuntu:400,500,700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.useso.com/css?family=Voltaire' rel='stylesheet' type='text/css'>
+    <!--//fonts-->
+    <script src="js/jquery.min.js"> </script>
+    <script src="js/bootstrap.min.js"></script>
+    <script>
+        function query(data) {
+            var res = prompt("请输入查询对象并且以减号'-'隔开");
+            if (res != null) {
+
+                sessionStorage.setItem("ob",data);
+                sessionStorage.setItem("com",res);
+                window.top.showup.location.href="member/listshow?current=1&row=7&com=" +encodeURI(encodeURI(res)) + "&ob=" + data;
+            }
+
+        }
+
+        function deleteMember(data) {
+            var res = prompt("请输入删除对象并且以减号'-'隔开");
+            if (res != null) {
+
+                sessionStorage.setItem("ob",data);
+                sessionStorage.setItem("com",res);
+                window.top.showup.location.href="member/listshow?current=1&row=7&com=" +encodeURI(encodeURI(res)) + "&ob=" + data;
+            }
+
+        }
+
+        function changePassword() {
+            let flag = confirm(`确定要更改密码吗？`);
+            if (flag == false) return;
+            var res = prompt("请输入新密码：");
+            $.get("/administer/changePassword",{newPasswolrd:res},function (data) {
+                if (data.res) {
+                    alert("密码修改成功....")
+                }
+            })
+        }
+
+
+        $(function () {
+
+            $("#join_us").show;
+            $("#admin").hide();
+            $.get("administer/findAdministerName",{},function (data) {
+                if (data.res == true) {
+                    $("#admin").show();
+                    $("#join_us").hide();
+                    $("#name").html(data.name + "<span class=\"caret\"></span>");
+                }
+                return false;
+            });
+            $('.dropdown-toggle').dropdown()
+        })
+    </script>
+    <style>
+        .bkimg{
+            background: url(./images/img1.jpg) no-repeat;
+            background-size: cover;
+            min-height: 942px;
+        }
+    </style>
+
+</head>
+<body>
+<!--header-->
+
+<div class="container-fluid bkimg banner2">
+
+    <div class="middl-text2 row" >
+        <div class="banner-right-text" style="padding-right: 4%">
+            <div >
+                <button id="join_us" style="color: black;"
+                        class="btn btn-success btn-lg dropdown-toggle"
+                        type="button" onclick="location.href = 'login.html';">
+                    Join us
+                </button>
+            </div>
+
+            <div class="btn-group" id="admin">
+                <button id="name" style="color: black;"
+                        class="btn btn-success btn-lg dropdown-toggle"
+                        type="button" data-toggle="dropdown" aria-haspopup="true"
+                        aria-expanded="false">
+                </button>
+                <ul class="dropdown-menu" id="dropdown">
+                    <li><a href="home.html">主页</a></li>
+                    <li class="disabled"><a href="Personal.html">团员管理系统主页</a></li>
+                    <li><a href="javascript:changePassword()">修改密码</a></li>
+                    <li role="separator" class="divider"></li>
+                    <li><a href="administer/LogOut">退出当前账户</a></li>
+                </ul>
+            </div>
+        </div>
+        <div style="margin-left: 100px;margin-top: -10px;margin-bottom: 10px;" >
+            <a href="Personal.html"><h2>团员管理系统</h2></a>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-2">
+
+            <div class="panel panel-default">
+                <!-- Default panel contents -->
+                <div class="panel-heading">系统功能区</div>
+
+                <!-- List group -->
+                <div class="list-group">
+                    <a href="#" class="list-group-item list-group-item-warning disabled">功能：条件查询团员</a>
+                    <a href="member/listshow?current=1&row=7" target="showup" class="list-group-item list-group-item-info">查询全部团员</a>
+
+                        <a href="javascript:query('sno')"  class="list-group-item list-group-item-warning query">按照学号查询</a>
+                        <a href="javascript:query('sdept')"  class="list-group-item list-group-item-info query">按照院系查询</a>
+                        <a href="javascript:query('major')"  class="list-group-item list-group-item-warning query">按照专业查询</a>
+                        <a href="javascript:query('className')"  class="list-group-item list-group-item-info query">按照班级查询</a>
+                        <a href="javascript:query('joinDate')"  class="list-group-item list-group-item-warning query">按照入团时间查询</a>
+
+                    <a href="#" class="list-group-item list-group-item-info disabled">功能：添加团员</a>
+                    <a href="jsp/update.jsp" target="showup"class="list-group-item list-group-item-info">单个添加团员</a>
+                    <a href="jsp/update.jsp" target="showup" class="list-group-item list-group-item-warning">批量添加团员</a>
+                    <a href="#" class="list-group-item list-group-item-warning disabled">功能：删除团员</a>
+                    <a href="javascript:deleteMember('sno')" class="list-group-item list-group-item-info">按照学号批量删除</a>
+                    <a href="javascript:deleteMember('major')" class="list-group-item list-group-item-warning">按照专业批量删除</a>
+                    <a href="javascript:deleteMember('sdept')" class="list-group-item list-group-item-info">按照院系批量删除</a>
+                    <a href="javascript:deleteMember('className')" class="list-group-item list-group-item-warning">按照班级批量删除</a>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="col-md-10">
+            <div class="embed-responsive embed-responsive-16by9">
+                <iframe class="embed-responsive-item" allowtransparency="true" style="background-color: transparent"  src="" name="showup"></iframe>
+            </div>
+        </div>
+
+    </div>
+
+    </div>
+
+
+<!--/header-->
+
+<!-- contact-page -->
+
+<!-- //contact-page -->
+<!--footer-->
+<div class="fotter">
+    <div class="container">
+        <p class="fotter-info">Copyright &copy; 2019.Company name wsx.<a target="_blank"
+                                                                         href="http://wsx1128.cn">Gavin</a></p>
+        <div class="clearfix"> </div>
+    </div>
+</div>
+<!--/footer-->
+<!--/footer-->
+</body>
+</html>

@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Home</title>
+<link href="css/bootstrap.css" rel="stylesheet">
+<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
+<!-- for-mobile-apps -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="Gym Lite Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template, 
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!-- //for-mobile-apps -->		
+<!--fonts-->
+<link href='http://fonts.useso.com/css?family=Raleway:500,600,700,100,800,900,400,300' rel='stylesheet' type='text/css'>
+<link href='http://fonts.useso.com/css?family=Ubuntu:400,500,700' rel='stylesheet' type='text/css'>
+<link href='http://fonts.useso.com/css?family=Voltaire' rel='stylesheet' type='text/css'>
+<!--//fonts-->
+<script  src="js/jquery.min.js"> </script>
+<script src="js/bootstrap.min.js"></script>
+<!--start slider -->
+<link rel="stylesheet" href="css/flexslider.css" type="text/css" media="screen" />
+<!--end slider -->
+<link rel="stylesheet" href="css/swipebox.css">
+<script src="js/jquery.swipebox.min.js"></script>
+<!--<script type="text/javascript" src="js/include.js"></script>-->
+	    <script type="text/javascript">
+			jQuery(function($) {
+				$(".swipebox").swipebox();
+			});
+		</script>
+
+	<script>
+		$(function () {
+			$("#join_us").show;
+			$("#admin").hide();
+
+			$.post("administer/findAdministerName",{},function (data) {
+
+				if (data.res == true) {
+
+					$("#admin").show();
+					$("#join_us").hide();
+					$("#name").html(data.name + "<span class=\"caret\"></span>");
+				}
+				return false;
+			});
+			$('.dropdown-toggle').dropdown()
+        })
+        
+        $("#btn_feedback").click(function() {
+            $.post("feedback",$("#feedback").serialize());
+            location.href = "home.html";
+        }
+        )
+	</script>
+</head>
+<body>
+
+<!--header-->
+<header class="banner" id="_header">
+	<div class="container">
+
+<!--个人用户区-->
+		<div class="banner-right-text">
+			<div >
+				<button id="join_us" style="color: black;margin-top: 20px;margin-left: 20px"
+						class="btn btn-success btn-lg dropdown-toggle"
+						type="button" onclick="location.href = 'login.html';">
+					登陆/注册
+				</button>
+			</div>
+			<div class="btn-group" id="admin">
+				<button id="name" style="color: black;margin-top: 20px;margin-left: 20px"
+						class="btn btn-success btn-lg dropdown-toggle"
+						type="button" data-toggle="dropdown" aria-haspopup="true"
+						aria-expanded="false">
+				</button>
+				<ul class="dropdown-menu" id="dropdown">
+					<li class="disabled"><a href="home.html">主页</a></li>
+					<li><a href="Personal.html">团员管理系统</a></li>
+					<li><a href="#">修改密码</a></li>
+					<li role="separator" class="divider"></li>
+					<li><a href="administer/LogOut">退出当前账户</a></li>
+				</ul>
+			</div>
+		</div>
+		<div class="banner-right-text"style="margin-left: -20px">
+			<h3>陕西科技大学<br /><i>团员管理系统</i></h3>
+		</div>
+		<!--个人用户区-->
+		<div class="top-menu">
+			<span class="menu"> </span>
+			<ul class="nav navbar-nav">
+				<li><a class="active" href="home.html">主页 <span class="sr-only">(current)</span></a></li>
+                <li><a href="#d1">学校特色</a></li>
+                <li><a href="#d2">团员介绍</a></li>
+				<li><a href="#d3">光辉时刻</a></li>
+				<li><a href="#d4">联系我们</a></li>
+				
+                
+                <div class="clearfix"> </div>
+			</ul>
+		</div>
+		<!-- script-for-menu -->
+		<script>
+			$("span.menu").click(function(){
+				$(".top-menu ul").slideToggle("slow" , function(){
+				});
+			});
+		</script>
+		<!-- script-for-menu -->
+	</div>
+	<!-- <div class="middl-text" >
+
+		<a href="#" style="margin-right: 20%;"><h1>Checking</h1></a>
+		<p>Everyone have their dream, but not everyone can make it happened.
+			if you can chase your dream bravely, you will find the real beauty of the world. Come on my friend , I am waiting for you!</p>
+
+	</div> -->
+</header>
+<!--/header-->
+<!--about-->
+<div class="about" id="d1">
+	<div class="container relative">
+		<h4>学校特色</h4>
+		<div class="col-md-8 about-text">
+			<p>陕西科技大学位于世界历史名城古都西安，是中国西部地区唯一一所以轻工为特色的多科性大学，
+                由中国轻工业联合会、中国轻工集团公司与陕西省政府共建，国家“中西部高校基础能力建设工程”建设高校、
+                陕西省省属高水平大学之一，入选教育部“卓越工程师计划”试点高校、教育部“卓越工程师教育培养计划2.0”建设高校、
+                国家首批“新工科研究与实践项目”入选高校、教育部“互联网+中国制造2025”产教融合促进计划试点院校和陕西省首批深化创新创业教育改革示范高校，CDIO工程教育联盟成员单位。
+			</p>
+			<p class="second-text">
+			    陕科大历经“三次创业、两次搬迁、一次划转”的奋斗与辉煌，秉承以“自强不息、艰苦奋斗的创业精神，求实创新、锐意进取的科学精神和扎根西部、服务社会的奉献精神”为内涵的“三创两迁”精神，培养了近15万名优秀人才，为国家建设和社会发展做出了重要贡献。
+                  截至2018年9月，学有博士后科研流动站3个，博士学位授权一级学科4个、二级学科18个，硕士学位授权一级学科18个、二级学科82个，涉及工学、理学、管理学、文学、经济学、法学、医学、艺术学等8大学科门类。有省级优势学科6个，省哲学社会科学特色建设学科1个
+            </p>
+        </div>
+        
+		<div class="col-md-4 about-slider">
+								    <section class="slider">
+							<div class="flexslider">
+							  <ul class="slides">
+								<li>
+									<img src="images/b1.jpg" class="img-responsive" alt="" />
+									</li>
+									<li>
+									<img src="images/b2.jpg" class="img-responsive" alt="" />
+									</li>
+									<li>
+									<img src="images/b3.jpg" class="img-responsive" alt="" />
+									</li>
+									<li>
+									<img src="images/b4.jpg" class="img-responsive" alt="" />
+									</li>
+							  </ul>
+							</div>
+						  </section>
+						  <!-- FlexSlider -->
+						  <script defer src="js/jquery.flexslider.js"></script>
+						  <script type="text/javascript">
+							$(function(){
+							  SyntaxHighlighter.all();
+							});
+							$(window).load(function(){
+							  $('.flexslider').flexslider({
+								animation: "slide",
+								start: function(slider){
+								  $('body').removeClass('loading');
+								}
+							  });
+							});
+						  </script>
+				<div class="clearfix"> </div>
+		</div>
+	</div>
+</div>
+<!--/about-->
+<!--about-->
+<!--find-dog-->
+<!--这个地方反而可以做成一个小玩意，比如可以制作成一个目标的指定过程，或者目标的举例之类的-->
+<!-- <div class="find-dog">
+	<div class="container relative">
+		<h4>光辉时刻</h4>
+		<div class="benefit">
+		<div class="box1">
+			<div class="col-md-4 row_10">
+				<ul class="service_grid">
+   	   			   <i class="s1"> </i>
+   	   			   <li class="desc">
+   	   				<h3>99.9% Uptime</h3>
+   	   				<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been.</p>
+   	   			   </li>
+   	   			   <div class="clearfix"> </div>
+   	   			</ul>
+			</div>
+			<div class="col-md-4 row-2">
+				<ul class="service_grid">
+   	   			   <i class="s2"> </i>
+   	   			   <li class="desc">
+   	   				<h3>24/7/365 Support</h3>
+   	   				<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been.</p>
+   	   			   </li>
+   	   			   <div class="clearfix"> </div>
+   	   			</ul>
+			</div>
+			<div class="col-md-4 row-2">
+				<ul class="service_grid">
+   	   			   <i class="s3"> </i>
+   	   			   <li class="desc">
+   	   				<h3>Protect Your pc</h3>
+   	   				<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been.</p>
+   	   			   </li>
+   	   			   <div class="clearfix"> </div>
+   	   			</ul>
+			</div>
+		</div>
+		<div class="box1">
+			<div class="col-md-4 find">
+				<ul class="service_grid">
+   	   			   <i class="s4"> </i>
+   	   			   <li class="desc">
+   	   				<h3>DNS Control</h3>
+   	   				<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been.</p>
+   	   			   </li>
+   	   			   <div class="clearfix"> </div>
+   	   			</ul>
+			</div>
+			<div class="col-md-4 row-2">
+				<ul class="service_grid">
+   	   			   <i class="s5"> </i>
+   	   			   <li class="desc">
+   	   				<h3>Domain Transfer</h3>
+   	   				<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been.</p>
+   	   			   </li>
+   	   			   <div class="clearfix"> </div>
+   	   			</ul>
+			</div>
+			<div class="col-md-4 row-2">
+				<ul class="service_grid">
+   	   			   <i class="s6"> </i>
+   	   			   <li class="desc">
+   	   				<h3>100% Security</h3>
+   	   				<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been.</p>
+   	   			   </li>
+   	   			   <div class="clearfix"> </div>
+   	   			</ul>
+			</div>
+		</div>
+		<div class="clearfix"> </div>
+	</div>
+	</div>
+</div> -->
+<!--/find-dog-->
+<!--Support-->
+<div class="support" id="d2">
+	<div class="container relative">
+		<div class="textimonials-section text-center">
+			<h4>团员介绍</h4>
+					<!-- <img src="images/t.png" alt="" /> -->
+					<!-- <h5>中国共产主义青年团是中国共产党领导的先进青年的群团组织，受中国共产党中央委员会管辖；同时，受中国共产党的委托领导中国少年先锋队的工作，指导中华全国学生联合会开展工作。</h5>
+					<p>Duis autem vel eum iriure dolor</p> -->
+					<a href="http://www.ccyl.org.cn/" style="margin-top: 16%;" class="btn btn-1 btn-1d">中国共产主义青年团</a>
+		</div>
+	</div>
+</div>
+<!--/Support-->
+<!--gallery-->
+<div class="gallery" id="d3">
+		<div class="container relative">
+			<h4>光辉时刻</h4>
+		<div class="label-3"> </div>
+		<div class="label-4"> </div>
+		<h3><span class="left-icon"> </span> <span class="right-icon"> </span><div class="clearfix"> </div></h3>
+		<!--Portfolio-->
+	<div class="project spl-gallery">
+					<div id="portfoliolist">
+						<div class="portfolio" style="display: inline-block; opacity: 1;">
+							<div class="portfolio-wrapper">		
+								<a href="images/c1.jpg" class="b-link-stripe b-animate-go   swipebox"  title="Image Title">
+							     <img src="images/c1.jpg" /><div class="b-wrapper"><h2 class="b-animate b-from-left    b-delay03 ">共青团<img src="images/p-search.png" /></h2>
+							  	 </div></a>
+			                </div>
+						</div>				
+						<div class="portfolio"  style="display: inline-block; opacity: 1;">
+							<div class="portfolio-wrapper">		
+								<a href="images/c2.jpg" class="b-link-stripe b-animate-go   swipebox"  title="Image Title">
+							     <img src="images/c2.jpg" /><div class="b-wrapper"><h2 class="b-animate b-from-left    b-delay03 ">共青团<img src="images/p-search.png" /></h2>
+							  	 </div></a>
+			               	</div>
+						</div>		
+						<div class="portfolio"  style="display: inline-block; opacity: 1;">
+							<div class="portfolio-wrapper">		
+								<a href="images/c3.jpg" class="b-link-stripe b-animate-go   swipebox"  title="Image Title">
+							     <img src="images/c3.jpg" /><div class="b-wrapper"><h2 class="b-animate b-from-left    b-delay03 ">共青团<img src="images/p-search.png" /></h2>
+							  	 </div></a>
+			                </div>
+						</div>						
+						<div class="portfolio"  style="display: inline-block; opacity: 1;">
+							<div class="portfolio-wrapper">		
+								<a href="images/c4.jpg" class="b-link-stripe b-animate-go   swipebox"  title="Image Title">
+							     <img src="images/c4.jpg" /><div class="b-wrapper"><h2 class="b-animate b-from-left    b-delay03 ">共青团<img src="images/p-search.png" /></h2>
+							  	 </div></a>
+			                </div>
+						</div>	
+						<div class="portfolio"  style="display: inline-block; opacity: 1;">
+							<div class="portfolio-wrapper">		
+								<a href="images/c5.jpg" class="b-link-stripe b-animate-go   swipebox"  title="Image Title">
+							     <img src="images/c5.jpg" /><div class="b-wrapper"><h2 class="b-animate b-from-left    b-delay03 ">共青团<img src="images/p-search.png" /></h2>
+							  	 </div></a>
+			                </div> 
+						</div>			
+						<div class="portfolio"  style="display: inline-block; opacity: 1;">
+							<div class="portfolio-wrapper">		
+								<a href="images/c6.jpg" class="b-link-stripe b-animate-go  swipebox"  title="Image Title">
+							     <img src="images/c6.jpg" /><div class="b-wrapper"><h2 class="b-animate b-from-left    b-delay03 ">共青团<img src="images/p-search.png" /></h2>
+							  	 </div></a>
+			                </div>
+			            </div>	
+			            <div class="portfolio"  style="display: inline-block; opacity: 1;">
+							<div class="portfolio-wrapper">		
+								<a href="images/c7.jpg" class="b-link-stripe b-animate-go   swipebox"  title="Image Title">
+							     <img src="images/c7.jpg" />
+							     <div class="b-wrapper">
+							         <h2 class="b-animate b-from-left    b-delay03 ">共青团<img src="images/p-search.png" /></h2>
+							  	 </div></a>
+			                </div> 
+						</div>			
+						<div class="portfolio"  style="display: inline-block; opacity: 1;">
+							<div class="portfolio-wrapper">		
+								<a href="images/c8.jpg" class="b-link-stripe b-animate-go  swipebox"  title="Image Title">
+							     <img src="images/c8.jpg" />
+							     <div class="b-wrapper">
+							         <h2 class="b-animate b-from-left    b-delay03 ">共青团<img src="images/p-search.png" /></h2>
+							  	 </div></a>
+			                </div>
+			            </div>		
+			            <div class="clearfix"> </div>
+			</div>
+</div>
+<!--/Portfolio-->
+	</div>
+</div>
+<!--/gallery-->
+<!-- contact-->
+<div class="contact" id="d4">
+	<div class="container relative">
+		<h4>联系我们</h4>
+		<div class="col-md-2 contact-logo">
+			<img src="images/logo.png">
+		</div>
+		<div class="col-md-5 contact-address">
+				<div class="contact-top-one">
+					<h5>地址:</h5>
+					<h6>陕西科技大学<span>电智学院</span>计算机专业</h6>
+				</div>
+				<div class="contact-top-one">
+					<h5>合伙人:</h5>
+					<p>王舒啸、李红江、庞陈勃<span></span></p>
+				</div>
+				<div class="contact-top-one">
+					<h5>邮箱:</h5>
+					<p><a href="wsx1128@outlook.com">wsx1128@outlook.com</a></p>
+				</div>
+		</div>
+
+		<div class="col-md-5 contact-top-right">
+			<form id="feedback">
+					<input type="text" placeholder="Name" required="">
+					<input type="text" placeholder="Email" required="">
+					<input type="text" placeholder="Subject" required="">
+					<textarea placeholder="Message" required> </textarea>
+				<div class="sub-button" id="btn_feedback">
+					<input type="submit" value="SEND">
+				</div>
+			</form>
+		</div>
+	</div>
+</div> 
+<!--/contact-->
+
+
+<!--footer-->
+<div class="fotter">
+	<div class="container">
+		<p class="fotter-info">Copyright &copy; 2019.Company name wsx.<a target="_blank"
+																		 href="http://wsx1128.cn">Gavin</a></p>
+
+		<div class="clearfix"> </div>
+	</div>
+</div>
+<!--/footer-->
+
+</body>
+</html>

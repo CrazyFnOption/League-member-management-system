@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Register</title>
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
+    <!-- for-mobile-apps -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="Gym Lite Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template,
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
+    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <!-- //for-mobile-apps -->
+    <!--fonts-->
+    <link href='http://fonts.useso.com/css?family=Raleway:500,600,700,100,800,900,400,300' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.useso.com/css?family=Ubuntu:400,500,700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.useso.com/css?family=Voltaire' rel='stylesheet' type='text/css'>
+    <!--//fonts-->
+    <script src="js/jquery.min.js"> </script>
+    <!--start slider -->
+    <link rel="stylesheet" href="css/flexslider.css" type="text/css" media="screen" />
+    <!--end slider -->
+    <link rel="stylesheet" href="css/swipebox.css">
+    <script src="js/jquery.swipebox.min.js"></script>
+    <script src="js/register.js"></script>
+    <script type="text/javascript">
+        jQuery(function($) {
+            $(".swipebox").swipebox();
+        });
+    </script>
+
+    <style>
+        .lable1{
+            color: whitesmoke;
+        }
+    </style>
+
+
+
+</head>
+<!--header-->
+<div class="banner">
+    <div class="container">
+
+        <div class="banner-right-text" style="margin-left: -20px">
+            <h3>陕西科技大学<br /><i>团员管理系统</i></h3>
+        </div>
+        <div class="top-menu">
+            <span class="menu"> </span>
+            <ul class="nav navbar-nav">
+                <li><a  href="home.html">Home <span class="sr-only">(current)</span></a></li>
+                <!-- <li><a href="about.html">Introduce</a></li>
+                <li><a href="gallery.html">The moment</a></li>
+                <li><a href="contact.html">Contact us</a></li>
+                <li><a class="active" href="contact.html">Join us</a></li> -->
+                <div class="clearfix"> </div>
+            </ul>
+        </div>
+        <!-- script-for-menu -->
+        <script>
+            $("span.menu").click(function(){
+                $(".top-menu ul").slideToggle("slow" , function(){
+                });
+            });
+        </script>
+        <!-- script-for-menu -->
+    </div>
+    <div class="middl-text" style="margin-left: 30%;margin-top: -5px" >
+
+        <div id="blackboard">
+            <span style="color: whitesmoke;font-size: 45px;margin-top: -2px;margin-left: 20%;">管理员资格注册</span>
+            <form style="width: 70%;margin-left: 80px;margin-top: 3%" id="form">
+
+
+                <div class="form-group" id="errorUser">
+                    <label for="name" class="lable1 label-bg">用户名</label>
+                    <span id="s1" style="color: orangered; margin-left: 3%;"></span>
+                    <input type="text" class="form-control" name="name" placeholder="name" id="name" >
+                    <span id="id1" class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
+                    <span id="id2" class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"></span>
+                </div>
+
+                <div class="form-group" id="errorMajor" >
+                    <label for="Sdept" class="lable1 label-bg">院系</label>
+                    <span id="s2" style="color: orangered; margin-left: 3%;"></span>
+                    <input type="text" class="form-control" name="sdept" id="Sdept" placeholder="Sdept">
+                    <span id="id3" class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
+                    <span id="id4" class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"></span>
+                </div>
+
+
+                <div class="form-group" id="errorEmail">
+                    <label for="Email" class="lable1 label-bg">邮箱</label>
+                    <span id="s3" style="color: orangered; margin-left: 3%;"></span>
+                    <input type="text" class="form-control" name="email" id="Email" placeholder="Email">
+                    <span id="id5" class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
+                    <span id="id6" class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"></span>
+                </div>
+
+                <div class="form-group" id="errorPassword">
+                    <label for="password" class="lable1 label-bg">密码</label>
+                    <span id="s4" style="color: orangered; margin-left: 3%;"></span>
+                    <input type="password" class="form-control" name="password" id="password" placeholder="Password">
+                    <span id="id7" class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
+                    <span id="id8" class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"></span>
+                </div>
+
+                <div>
+                    <label for="checkCode" class="lable1 label-bg">验证码</label>
+                    <a href="javascript:refreshCode()"> <img src="administer/checkCode"  id="Code" alt=""></a>
+                    <span id="s5" style="color: orangered; margin-left: 3%;"></span>
+                </div>
+                <div class="form-group" id="errorCheckcode">
+
+                    <input type="text" class="form-control" id="checkCode"style="margin-top: 5px"  placeholder="checkCode">
+                    <span id="id9" class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
+                    <span id="id10" class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"></span>
+                </div>
+
+
+                <button type="submit" class="btn btn-success" id="btn">注册</button>
+                <button type="button" class="btn btn-danger" id="btn_c">取消</button>
+            </form>
+        </div>
+    </div>
+</div>
+<!--/header-->
+
+<!--footer-->
+<div class="fotter">
+    <div class="container">
+        <p class="fotter-info">Copyright &copy; 2019.Company name wsx.<a target="_blank"
+                href="http://wsx1128.cn">Gavin</a></p>
+
+        <div class="clearfix"> </div>
+    </div>
+</div>
+<!--/footer-->
+
+</html>
